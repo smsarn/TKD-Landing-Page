@@ -1,0 +1,140 @@
+﻿
+.arrow {
+    font-size: 12px;
+    font-weight: bold;
+    border: none;
+    border-style: none;
+    background-color: transparent;
+    position: absolute;
+    top: 1px;
+    right: 3px;
+    color: #9d9d9d;
+    float: right;
+}
+
+
+
+.appletDiv {
+    height: 100vh;
+    z-index: 2;
+}
+/* 
+.browser {
+    margin-bottom: 10px;
+    margin-right: 0px;
+    width: 80px;
+    height: 20px;
+    font-style: italic;
+    border: none;
+    border-style: none;
+    background-color: transparent;
+    font-family: Trebuchet MS;
+    position: absolute;
+    right: 10px;
+    top: 90%;
+    color: #9d9d9d;
+    font-weight: normal;
+    font-size: 8px;
+    float: right;
+} */
+
+    .appletiFrame {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        border: none;
+        z-index: 2;
+        left: 0px;
+        right: 0px;
+    }
+
+    .appletiFrameExp {
+        position: absolute;
+        width: 120%;
+        border: none;
+        z-index: 2;
+        left: -19%;
+        right: 0px;
+    }
+
+    html, body, iframe {
+        font-family: Trebuchet MS;
+        font-size: 24px;
+        height: 100%;
+        visibility: visible;
+        padding-bottom: 10px;
+        
+    }
+
+    iframe {
+        z-index: 200;
+    }
+
+    .ie {
+        height: 20px;
+        width: 100%;
+        padding-left: 40px;
+        font-size: 18px;
+        padding-top: 3%;
+        color: maroon;
+    }
+@media only screen and (max-width: 1024) {
+    .appletiFrame {
+    /*     width: 100%;
+        left: 8px;
+        right: 12px; */
+        top: 50px;
+        
+    }
+}
+/* Portrait */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+    .appletiFrame {
+             top: 50px;
+            
+        }
+}
+/* @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
+    .appletiFrame {
+        top: 50px;
+       
+   }
+} */
+@media only screen and (min-device-width: 481px) and (max-device-width: 1024px)  {
+    .appletiFrame {
+        top: 55px;
+       
+   }
+}
+  
+@media all and (max-width:767px) {
+
+    /* .browser {
+        width: 200px;
+        margin-right: 80px;
+    } */
+    .appletiFrame {
+         top: 0px;
+      /*    width: 100%;
+         left: 8px;
+        right: 12px;
+       */  
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .appletiFrame {
+        top: 0px;
+    }
+    html, body, iframe {
+        font-family: Trebuchet MS;
+        font-size: 24px;
+        height: 100%;
+        visibility: visible;
+        padding-bottom: 20px;
+    }
+}

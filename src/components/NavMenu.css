@@ -1,0 +1,415 @@
+﻿
+/*Here are Bootstrap’s media queries breakpoints and up-values indicated by min-width  and breakpoints and down-values indicated by max-width. */
+/*MEDIA QUERY FOR MOBILE SMARTPHONES*/
+@media only screen and (min-width: 576px) {
+    /* CSS Rules Here */
+}
+
+@media only screen and (max-width: 575px) {
+    /* CSS Rules Here */
+}
+
+/*MEDIA QUERY FOR TABLETS*/
+@media only screen and (min-width: 768px) {
+    /* CSS Rules Here */
+}
+
+@media only screen and (max-width: 767px) {
+    /* CSS Rules Here */
+}
+
+/* MEDIA QUERY FOR LAPTOPS AND DESKTOP*/
+@media only screen and (min-width: 992px) {
+    /* CSS Rules Here */
+}
+
+@media only screen and (max-width: 991px) {
+    /* CSS Rules Here */
+}
+
+/*MEDIA QUERY FOR LARGE SCREENS*/
+@media only screen and (min-width: 1200px) {
+    /* CSS Rules Here */
+}
+
+@media only screen and (max-width: 1199px) {
+    /* CSS Rules Here */
+}
+
+
+
+
+.tips {
+    color:rgb(109, 6, 109);
+    font-family: 'Trebuchet MS';
+    padding: 5px;
+    scroll-padding-left: 10px;
+    margin-left: 12px;
+    cursor:pointer;
+    background-color: rgb(207, 199, 207);
+    border-radius: 5px;
+    top:20px
+}
+
+
+
+
+.navbar li  {
+    margin-right: 10px;
+}
+
+.navbar {
+    background-image: none;
+    background-color: #455560;
+    font-family: 'Trebuchet MS';
+    white-space: normal;
+}
+
+    .navbar span {
+        white-space: normal;
+    }
+
+    .navbar li {
+        font-family: 'Trebuchet MS';
+        font-size: 14px;
+        font-weight: bold;
+        margin: 6px;
+        overflow: auto;
+        word-break: normal;
+    }
+
+    .navbar ul {
+        overflow: auto;
+    }
+
+.buttonClose {
+    -webkit-appearance: none;
+    visibility: hidden;
+    width: 8%;
+    height: 5%;
+    background: white;
+    border-radius: 5px;
+    border: 2px solid #7d4d83;
+    position: absolute;
+    right: 15%;
+}
+
+    .buttonClose:hover {
+        background: #c41389;
+    }
+
+.msgBanner {
+    visibility: hidden;
+    width: 75%;
+    margin-left: 40px;
+    margin-top: 30px;
+}
+
+.saveMsg {
+    font-size: 14px;
+    font-weight: bold;
+    height: 20px;
+    font-style: italic;
+    border: none;
+    border-style: none;
+    background-color: transparent;
+    font-family: Trebuchet MS;
+    color: #ffc7ec;
+    margin-left: 45px;
+    /* margin-top: 30px; */
+    bottom: 2%;
+  
+    /* float: right; */
+    /* width: 200px; left: 7px; bottom:10%; */
+}
+
+.hide {
+    visibility: hidden;
+}
+
+
+
+/* Highlighting rules for nav menu items */
+.navbar .navbar-nav .active a,
+.navbar .navbar-nav .active a:hover,
+.navbar .navbar-nav .active a:focus {
+    background-image: none;
+    background-color: #949CA1; /*#4189C7;*/
+    color: white;
+}
+
+.navbar-header {
+    float: none;
+}
+
+.navbar-toggle {
+    display: block;
+}
+
+.navbar-collapse.collapse {
+    display: none !important;
+}
+.navbar-fixed-top .navbar-collapse,
+.navbar-fixed-bottom .navbar-collapse
+{
+    max-height: 550px;
+}
+.navbar-nav {
+    float: none !important;
+}
+
+    .navbar-nav > li {
+        float: none;
+    }
+
+.navbar-collapse.collapse.in {
+    display: block !important;
+}
+
+.language {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    margin-right: 0px;
+    font-size: 16px;
+    font-weight: bold;
+    width: 80px;
+    height: 20px;
+    font-style: italic;
+    border: none;
+    border-style: none;
+    background-color: transparent;
+    font-family: Trebuchet MS;
+    position: absolute;
+    bottom: 2%;
+    right: 35px;
+    color: #9d9d9d;
+    float: right;
+}
+
+    .language:focus, .language:hover {
+        color: white;
+    }
+
+/*@media (min-width: 767px) {  
+    @media only screen and (min-width: 1199px) {*/
+        /*
+@media (min-width:768px) {
+    .navbar {
+        border-radius: 0;
+        border-width: 0;
+        height: 100%;
+        width: calc(23% - 20px);
+    }
+
+    .navbarMinimized {
+        border-radius: 0;
+        border-width: 0;
+        height: 100%;
+        width: calc(10.1% - 20px);
+    }
+
+    .navbar-header {
+        float: none;
+    }
+
+    .navbar .navbar-collapse {
+        border-top: 1px solid #444;
+        padding: 0;
+    }
+
+    .navbar .container-fluid {
+        padding: 0;
+        margin: 0;
+    }
+
+        .navbar .container-fluid .navbar-brand {
+            margin: 0;
+        }
+
+    .navbar ul {
+        float: none;
+        overflow: auto;
+    }
+
+    .navbar li {
+        font-family: 'Trebuchet MS';
+        float: none;
+        font-size: 14px;
+        font-weight: bold;
+        word-wrap: hyphenate;
+        margin: 6px;
+    }
+
+        .navbar li a {
+            padding: 10px 16px;
+            border-radius: 4px;
+        }
+
+    .navbar a {
+        // If a menu item's text is too long, truncate it 
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+    .navbar-collapse.collapse {
+        display: block !important;
+    }
+
+
+    .navbar-toggle {
+        display: none;
+    }
+
+    .buttonClose {
+        visibility: hidden;
+    }
+
+    .msgBanner {
+        visibility: hidden;
+    }
+}
+*/
+
+
+/* ----------- iPad Pro ----------- */
+/* Portrait and Landscape */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+}
+
+/* Portrait */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (orientation: portrait) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+ 
+}
+
+/* Landscape */
+@media only screen 
+  and (min-width: 1024px) 
+  and (max-height: 1366px) 
+  and (orientation: landscape) 
+  and (-webkit-min-device-pixel-ratio: 1.5) {
+
+}
+
+@media (max-width: 1024px){
+.col-sm-10 {
+    width: 100%;
+}
+.navbar {
+    min-height: 50px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+}
+.msgBanner {
+    visibility: hidden;
+    width: 75%;
+    margin-left: 40px;
+    margin-top: 40px;
+}
+
+}
+/* REGULAR SCREEN!*/
+
+@media (min-width:1025px) {
+
+    
+    
+    
+    
+    .navbar {
+        height: 100%;
+        width: calc(18% - 20px);
+    }
+
+    .navbarMinimized {
+        height: 100%;
+        width: calc(2.5% - 20px);
+    }
+
+
+
+    .navbar-header {
+        float: none;
+    }
+
+    .navbar .navbar-collapse {
+        border-top: 1px solid #444;
+        padding: 0;
+    }
+
+    .navbar .container-fluid {
+        padding: 0;
+        margin: 0;
+    }
+
+        .navbar .container-fluid .navbar-brand {
+            margin: 0;
+        }
+
+    .navbar ul {
+        float: none;
+        overflow: auto;
+    }
+
+    .navbar li {
+        font-family: 'Trebuchet MS';
+        float: none;
+        font-size: 14px;
+        font-weight: bold;
+        word-wrap: hyphenate;
+        margin: 6px;
+    }
+
+        .navbar li a {
+            padding: 10px 16px;
+            border-radius: 4px;
+        }
+
+    .navbar a {
+        {/*} If a menu item's text is too long, truncate it */}
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+    .navbar-collapse.collapse {
+        display: block !important;
+    }
+    .navbar-fixed-top .navbar-collapse,
+    .navbar-fixed-bottom .navbar-collapse
+    {
+        max-height: 900px;
+    }
+
+    .navbar-toggle {
+        display: none;
+    }
+
+    .buttonClose {
+        visibility: hidden;
+    }
+
+    .msgBanner {
+        visibility: hidden;
+    }
+
+    .saveMsg {
+    margin-top:40px;
+    }
+
+    .language {
+        right: 10px;
+    }
+    
+}
