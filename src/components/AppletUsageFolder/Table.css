@@ -1,0 +1,32 @@
+img:hover {
+    cursor: pointer;
+}
+
+.dialog {
+	font-family: Trebuchet MS;	
+	color: #1c2225;
+	width: 185px;
+	font-size: 18px;
+	height: 18px;
+
+}
+
+.command {
+	font-family: 'Trebuchet MS';
+	font-size: 16px;
+	text-align: left;
+	padding: 7px 18px 5px 17px;
+	margin-top: 10px;	
+	margin-bottom: 8px;
+	margin-left: auto;
+	border: none;
+	float: left;
+	display: block;
+	cursor: pointer;color: #2f553f;/*#63879c; /*#395662;*/
+	-moz-border-radius: 3px;
+	background-color:  #e2e2e2;
+	box-shadow: 0px 1px 3px  #979797;
+	-moz-box-shadow: 0px 1px  3px  #979797;
+	-webkit-box-shadow: 0px 1px  3px  #979797;
+	-o-box-shadow: 0px 1px  3px  #979797;
+}

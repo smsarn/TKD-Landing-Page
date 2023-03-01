@@ -10,7 +10,7 @@ export class Layout extends Component {
       <Grid fluid>
         <Row>
           <Col sm={2}>
-                    <NavMenu language={this.props.language} userGUID={this.props.userGUID} selectedApplet={this.props.selectedApplet}  changeLang={this.props.changeLang} logoSource={this.props.logoSource} changeLogo={this.props.changeLogo} minimizeSideBar={this.props.minimizeSideBar} sideBarMinimized={this.props.sideBarMinimized} visible={this.props.visible} redirectTo={this.props.redirectTo} redirectClear={this.props.redirectClear} />          </Col>
+                    <NavMenu language={this.props.language} userGUID={this.props.userGUID} selectedApplet={this.props.selectedApplet}  changeLang={this.props.changeLang} logoSource={this.props.logoSource} changeLogo={this.props.changeLogo} minimizeSideBar={this.props.minimizeSideBar} sideBarMinimized={this.props.sideBarMinimized} visible={this.props.visible} redirectTo={this.props.redirectTo} redirectClear={this.props.redirectClear} externalUser={this.props.externalUser} tokenValid={this.props.tokenValid} loginUsageAccess={this.props.loginUsageAccess} loginFeedbackAccess={this.props.loginFeedbackAccess}/>          </Col>
           <Col sm={10}>
             {this.props.children}
           </Col>

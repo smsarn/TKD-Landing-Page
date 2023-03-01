@@ -60,9 +60,10 @@
 
 .navbar {
     background-image: none;
-    background-color: #455560;
+    background-color: #44515a;
     font-family: 'Trebuchet MS';
     white-space: normal;
+
 }
 
     .navbar span {
@@ -73,7 +74,7 @@
         font-family: 'Trebuchet MS';
         font-size: 14px;
         font-weight: bold;
-        margin: 6px;
+        margin: 3px;
         overflow: auto;
         word-break: normal;
     }
@@ -98,6 +99,8 @@
         background: #c41389;
     }
 
+
+    
 .msgBanner {
     visibility: hidden;
     width: 75%;
@@ -123,6 +126,20 @@
     /* width: 200px; left: 7px; bottom:10%; */
 }
 
+.newMsg {
+    font-size: 14px;
+    font-weight: bold;
+    height: 20px;
+    font-style: italic;
+    border: none;
+    border-style: none;
+    background-color: transparent;
+    font-family: Trebuchet MS;
+    color: #ffc7ec;
+    margin-left: 0px;
+    
+}
+
 .hide {
     visibility: hidden;
 }
@@ -134,7 +151,7 @@
 .navbar .navbar-nav .active a:hover,
 .navbar .navbar-nav .active a:focus {
     background-image: none;
-    background-color: #949CA1; /*#4189C7;*/
+    background-color: #a5acb1; /*#4189C7;*/
     color: white;
 }
 
@@ -165,7 +182,7 @@
 .navbar-collapse.collapse.in {
     display: block !important;
 }
-
+/* 
 .language {
     margin-top: 10px;
     margin-bottom: 5px;
@@ -185,10 +202,26 @@
     color: #9d9d9d;
     float: right;
 }
-
+ */
+.language {
+    font-size: 12px;
+    width: 62px;
+    font-style: italic;
+    border: none;
+    border-style: none;
+    background-color: transparent;
+    font-family: Trebuchet MS;
+    color: #e4e0e0;
+    float: right;
+}
     .language:focus, .language:hover {
         color: white;
     }
+
+
+        
+    
+
 
 /*@media (min-width: 767px) {  
     @media only screen and (min-width: 1199px) {*/
@@ -315,7 +348,9 @@
     margin-left: 40px;
     margin-top: 40px;
 }
-
+.navbar-fixed-top .navbar-collapse, .navbar-fixed-bottom .navbar-collapse {
+    max-height: 70%;
+}
 }
 /* REGULAR SCREEN!*/
 
@@ -353,6 +388,7 @@
 
         .navbar .container-fluid .navbar-brand {
             margin: 0;
+            /* height: 40px; */
         }
 
     .navbar ul {
@@ -366,7 +402,7 @@
         font-size: 14px;
         font-weight: bold;
         word-wrap: hyphenate;
-        margin: 6px;
+        margin: 3px;
     }
 
         .navbar li a {

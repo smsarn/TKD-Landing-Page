@@ -12,18 +12,7 @@ export class AppletHomeNoPPI extends React.Component
             < div className = "appletDiv" >
 
 
-                {/*<div><input className="language" onClick={this.props.changeLang} type="button" value={lang} />
-				</div>
-
-				<div > <img src={toolkit} style={{ width: '100%', border: '0', alt: 'Null' }} />
-
-				</div>
-				
-				<div><input className="language" onClick={this.props.changeLang} type="button" value={lang} />
-				
-				<iframe className="appletiFrame" src={url} />*/
-        }
-
+               
                 < iframe className = "appletiFrame" style ={ { width: '100%', border: '0', alt: 'Null' } }
                     src={"http://about:blank" } />
 

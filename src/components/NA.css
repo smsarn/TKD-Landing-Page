@@ -12,12 +12,77 @@
     float: right;
 }
 
-
+.banner { 
+    width: 100%;
+    border: 0;
+    height: 60%;
+    top: 0px
+}
 
 .appletDiv {
     height: 100vh;
     z-index: 2;
 }
+
+.displayed {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width:270px;   
+}
+
+.loader {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #4775ae;/*  #7399C6; */
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-left:30px;
+    margin-top: 30px;
+    animation: spin 2s linear infinite;
+  }
+ 
+  
+.loader2 {
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #4775ae;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    margin-left:40px;
+    
+    animation: spin 1s linear infinite;
+    display: inline-block;
+  }
+ 
+ li {
+    padding-left: 20px;
+   }
+ ul {
+    padding-left: 20px;
+    font-size: 20px;
+  }
+
+  .wrapper {
+    width: 70%;
+    display: inline-block;
+    position: relative;
+   }
+   .wrapper:after {
+       padding-top: 56.25%; /*16:9 ratio*/
+       display: block;
+       content: '';
+   }
+   .main {
+       position: absolute;
+       top: 3px; bottom: 0; right: 0; left: 0; /*fill parent*/
+       width:    100%;
+       height:   100%
+   }
+  @keyframes spin {
+    0%  { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 /* 
 .browser {
     margin-bottom: 10px;
@@ -39,21 +104,22 @@
 } */
 
     .appletiFrame {
-        position: absolute;
+       /*  position: absolute; */
         width: 100%;
         height: 100%;
         border: none;
         z-index: 2;
-        left: 0px;
+        left: .3%;
         right: 0px;
     }
 
     .appletiFrameExp {
-        position: absolute;
-        width: 120%;
+        position: absolute; 
+        width: 119.5%;
+        height: 100%;
         border: none;
         z-index: 2;
-        left: -19%;
+        left: -19.1%;
         right: 0px;
     }
 
@@ -78,6 +144,29 @@
         padding-top: 3%;
         color: maroon;
     }
+.UsageDiv {
+    padding-left: 2%;
+    width: 85%;
+    padding-top: 15px;
+    }
+    
+.header {
+	cursor: pointer;
+	padding: 9px;
+	padding-bottom: 15px;
+	padding-left: 15px;
+	padding-right: 22px;
+	background-color: #7399C6;
+	color: #FFF;
+	font-family: 'Trebuchet MS';
+	font-size: 16px;
+    height:42px;
+	border: 2px solid #7399C6;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	margin-bottom: 1px;
+	margin-top: 5px;
+}
 @media only screen and (max-width: 1024) {
     .appletiFrame {
     /*     width: 100%;
@@ -86,6 +175,18 @@
         top: 50px;
         
     }
+    .appletDiv {
+        padding-top: 50px;
+        
+    }
+    .UsageDiv {
+        width: 100%;
+    }
+    
+    .wrapper {
+        width: 100%;
+    }  
+    
 }
 /* Portrait */
 @media only screen 
@@ -96,6 +197,13 @@
     .appletiFrame {
              top: 50px;
             
+        }
+        .appletDiv {
+            padding-top: 50px;
+            
+        }
+        .UsageDiv {
+            width: 100%;
         }
 }
 /* @media only screen and (min-device-width: 481px) and (max-device-width: 1024px) and (orientation:portrait) {
@@ -109,6 +217,22 @@
         top: 55px;
        
    }
+   .appletDiv {
+    padding-top: 55px;
+    
+}
+.UsageDiv {
+    width: 100%;
+}
+.wrapper {
+    width: 100%;
+}  
+}
+
+.bannerTable {
+    margin-left: auto;
+    margin-right: auto;
+  
 }
   
 @media all and (max-width:767px) {
@@ -124,17 +248,85 @@
         right: 12px;
        */  
     }
+    .appletDiv {
+        padding-top: 0px;
+        overflow: auto;
+        
+    }
+    .UsageDiv {
+        width: 100%;
+    }
+    .wrapper {
+        width: 100%;
+    }  
+    .banner { 
+        height: 45%;
+    }
+
+    .bannerTable tr {    display: table;  width:100%;    }               
+    .bannerTable td {    display: table-row; }           
+
+    .displayed {
+        width:200px;   
+    }
+    
 }
 
 @media only screen and (max-width: 600px) {
     .appletiFrame {
         top: 0px;
     }
+    .appletDiv {
+        padding-top: 0px;
+        
+    }
     html, body, iframe {
         font-family: Trebuchet MS;
         font-size: 24px;
         height: 100%;
         visibility: visible;
-        padding-bottom: 20px;
+        padding-bottom: 50px;
+    }
+    .UsageDiv {
+        width: 100%;
+    }
+    .wrapper {
+        width: 100%;
+    }  
+    .banner { 
+        height: 45%;
     }
 }
+
+
+.inputFieldInTable {
+	/* Remove First */
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+	border-radius: 3px;
+	background: none;
+	border: 1px;
+	border: 1px solid #B1CAE6;
+	background-color: white;
+	display: inline-block;
+    
+    text-align: left;
+	width: 100%;
+	padding: 3px;
+	margin: 0px;
+	height: 100%;
+	font-family: 'Trebuchet MS';
+	font-size: 14px;
+}
+.inputFieldInTable:focus{
+	outline-offset: 0px !important;
+	outline: none !important;
+}
+.inputFieldInTable:hover {
+	background-color: #d6e5ee;
+}
+.inputFieldInTable::-ms-clear {
+	width : 0;
+	height: 0;
+  }

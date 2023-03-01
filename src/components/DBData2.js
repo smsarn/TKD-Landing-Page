@@ -24,7 +24,7 @@ export class DBData2 extends React.Component {
         const lang = this.props.language === "en" ? "Français" : "English";
         //let dataToPass = (this.props.QS !== "" ? "&QS=" + this.props.QS : "") + (this.props.recover !== "" ? "&recover=" + this.props.recover : "") + (this.props.userGUID !== "" ? "&userGUID=" + this.props.userGUID : "") +  (this.props.snapimport !== "" ? "&snapimport=" + this.props.snapimport : "") + "&a=" + Math.random();
         let dataToPass = (this.props.QS !== "" ? this.props.QS : "");
-        console.log(dataToPass)
+      //  console.log(dataToPass)
         let url = this.props.appletURL;
 
         let isIE = /*@cc_on!@*/false || !!document.documentMode;
@@ -34,7 +34,8 @@ export class DBData2 extends React.Component {
         this.props.selectApplet(getAppletName(this.props.appletURL, this.props.language ))
 
         const src=url + "?lang=" + this.props.language + dataToPass;
-        return (
+
+         return (
             <div className="appletDiv">
                 {isIE ? <div className="ie"> {msg}
                 </div> :

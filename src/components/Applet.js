@@ -1,6 +1,7 @@
 ﻿import React from 'react';
 import './NA.css';
-import {getAppletName} from '../Utils/util';
+import {getAppletName, unloadSpinner} from '../Utils/util';
+
 
 export class Applet extends React.Component {
 
@@ -8,23 +9,38 @@ export class Applet extends React.Component {
         super(props);
      }
     componentDidMount(){
-        this.reload();
+      //this.reload();
+       
     }
-    componentWillReceiveProps(nextProps) {
-        this.reload();
+
+    
+     componentWillReceiveProps(nextProps) {
+        setTimeout(unloadSpinner, 40000); 
+     if(nextProps.Applet!==this.props.appletURL)
+     {
+         const loader=document.getElementById('gohLoader')
+        const goh=document.getElementById('goh')
+        if (loader!==null && loader.style.display === 'none'){
+           goh.style.visibility="hidden"
+           goh.style.display="none"
+           loader.style.display = 'block'
+         }
+         
+        
+     }
     }
     
-    reload=()=>{
-        document.getElementById("goh").onload=()=>{document.getElementById('goh').style.display="block"}
-    }
+    //reload=()=>{
+       //document.getElementById("goh").onload=()=>{document.getElementById('goh').style.display="block"}
+   //    document.getElementById('goh').style.display="block"
+   // }
 
    
-
+   
     render() {
         const lang = this.props.language === "en" ? "Français" : "English";
         //let dataToPass = (this.props.QS !== "" ? "&QS=" + this.props.QS : "") + (this.props.recover !== "" ? "&recover=" + this.props.recover : "") + (this.props.userGUID !== "" ? "&userGUID=" + this.props.userGUID : "") +  (this.props.snapimport !== "" ? "&snapimport=" + this.props.snapimport : "") + "&a=" + Math.random();
         let dataToPass = (this.props.QS !== "" ? this.props.QS : "");
-        console.log(dataToPass)
         let url = this.props.appletURL;
 
         let isIE = /*@cc_on!@*/false || !!document.documentMode;
@@ -38,8 +54,11 @@ export class Applet extends React.Component {
             <div className="appletDiv">
                 {isIE ? <div className="ie"> {msg}
                 </div> :
+             <div className={appletiFrameClass}>   <div class="loader-container">
+                <div class="loader"  id="gohLoader" style={{display:"block"}}></div>
+             </div>
                     <iframe id="goh" className={appletiFrameClass} src={src} style={{display:"none"}}  allow= "clipboard-read; clipboard-write"/>
-
+                    </div>
                 }
                 {/*<div><input className="language" onClick={this.props.changeLang} type="button" value={lang} />
 				</div>*/}

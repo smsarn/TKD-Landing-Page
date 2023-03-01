@@ -1,0 +1,80 @@
+.multiButtons {
+	float: left;
+	margin-top: 3px;	
+	margin-bottom: 5px;
+	padding-left: 17px;
+	width: 130px;
+	font-family: 'Trebuchet MS';
+	font-size: 15px;
+    color: '#864b94'; 
+	height: 30px;
+	text-align: left;
+	/*color: #2F4755;/*#63879c; /*#395662;*/
+	-moz-border-radius: 4px;
+	border-radius: 4px;
+	background-color: white;
+	border: 1px solid rgb(87, 128, 175);
+ 	margin-left: -1px; 
+	 box-shadow: 0px 1px 3px  #979797;
+	-moz-box-shadow: 0px 1px  3px  #979797;
+	-webkit-box-shadow: 0px 1px  3px  #979797;
+	-o-box-shadow: 0px 1px  3px  #979797;
+	 cursor: pointer;
+}
+.multiButtons:hover {
+
+	box-shadow: 0px 3px 3px  #9aa533;
+	-moz-box-shadow: 0px 3px 3px  #9aa533;
+	-webkit-box-shadow: 0px 3px 3px  #9aa533;
+	-o-box-shadow: 0px 3px 3px  #9aa533;
+}
+
+.multiButtonsAct {
+	box-shadow: 0px 1px 3px  #ffffff;
+	-moz-box-shadow: 0px 1px  3px  #ffffff;
+	-webkit-box-shadow: 0px 1px  3px  #ffffff;
+	-o-box-shadow: 0px 1px  3px  #ffffff;
+	background-color: #2F4755;/*#63879c; /*#395662;*/
+	color: #FFF; /*#e9eef1;*/
+	cursor: default;
+}
+.multiButtonsAct:hover {
+
+	box-shadow: 0px 3px 3px  #ffffff;
+	-moz-box-shadow: 0px 3px 3px  #ffffff;
+	-webkit-box-shadow: 0px 3px 3px  #ffffff;
+	-o-box-shadow: 0px 3px 3px  #ffffff;
+}
+
+
+.multiButtons:focus {
+	outline: none;
+	cursor: pointer;
+
+}
+.multiButtonsAct:focus {
+	outline: none;
+	cursor: default;	
+}
+
+.roundedCornerCmd
+{
+	font-family: 'Trebuchet MS';
+	font-size: 15px;
+    color: '#864b94'; 
+	text-align: left;
+	padding: 7px 18px 5px 17px;
+	margin-top: 4px;	
+	margin-bottom: 8px;
+	margin-left: auto;
+	border: none;
+	float: left;
+	display: block;
+	cursor: pointer;color: #2F4755;/*#63879c; /*#395662;*/
+	-moz-border-radius: 3px;
+	background-color:  #e2e2e2;
+	box-shadow: 0px 1px 3px  #979797;
+	-moz-box-shadow: 0px 1px  3px  #979797;
+	-webkit-box-shadow: 0px 1px  3px  #979797;
+	-o-box-shadow: 0px 1px  3px  #979797;
+}
