@@ -1,10 +1,7 @@
 import React, { Component } from "react";
 import {
   Dialog,
-  Button,
-  Card,
-  CardContent,
-  Typography,
+  Button,  
 } from "@material-ui/core";
 import {
   DialogActions,
@@ -14,8 +11,6 @@ import {
   TextField,
 } from "@material-ui/core";
 
-
-
 export class PopupUserinputDialog extends Component {
   constructor(props) {
     super(props);
@@ -23,7 +18,6 @@ export class PopupUserinputDialog extends Component {
       open: this.props.openDialog,
       name: "",
       showInfo: false,
-      
     };
   }
 
@@ -36,11 +30,11 @@ export class PopupUserinputDialog extends Component {
   }
 
   handleOK = () => {
-     this.props.respondToInput(true);
-   
-     this.setState({
+    this.props.respondToInput(true);
+
+    this.setState({
       open: !this.state.open,
-    }); 
+    });
   };
 
   handleCancel = () => {
@@ -56,25 +50,17 @@ export class PopupUserinputDialog extends Component {
     });
   };
 
-  handleButton=(item)=> {
-    this.props.respondToInput(item-1);
+  handleButton = (item) => {
+    this.props.respondToInput(item - 1);
     this.setState({
       open: !this.state.open,
     });
   };
 
   render() {
-    const handleChange = (evt) => {
-      this.setState({
-        name: evt.target.value,
-      });
-    };
-    
-  
-//console.log(this.props.inputFields)
- const style={fontFamily: "Trebuchet MS" }
-    
-return (
+    const style = { fontFamily: "Trebuchet MS" };
+
+    return (
       <div>
         {/*  <Button/> */}
         <Dialog
@@ -86,61 +72,48 @@ return (
           <DialogTitle id="confirm-dialog"></DialogTitle>
           <DialogContent>
             <DialogContentText>
-              <span className="dialog" style={{fontSize:"18px"}}>{this.props.title}</span>
-              
-         
+              <span className="dialog" style={{ fontSize: "18px" }}>
+                {this.props.title}
+              </span>
             </DialogContentText>
 
             <form>
-              {this.props.inputFields.map(dd => 
-              <TextField style={{ paddingRight: "12px"}}
-                id={dd.itemName}
-                label={dd.title}
-                value={dd.value}
-              /*   onChange={handleChange} */
-                margin="normal"
-              ></TextField>)}
+              {this.props.inputFields.map((dd) => (
+                <TextField
+                  style={{ paddingRight: "12px" }}
+                  id={dd.itemName}
+                  label={dd.title}
+                  value={dd.value}                  
+                  margin="normal"
+                ></TextField>
+              ))}
             </form>
-         
           </DialogContent>
-           
+
           <DialogActions
-            style={{ paddingRight: "14px", paddingBottom: "14px",
-       }}
+            style={{ paddingRight: "14px", paddingBottom: "14px" }}
           >
-
-
             <div>
-            {this.props.inputButtons.map(dd => 
-              <Button
-                onClick={this.handleButton.bind(this,dd.itemName)} 
-                variant="contained"
-                style={{marginRight: "8px", width:this.props.buttonWidth,  fontFamily: "Trebuchet MS,Arial,Helvetica,sans-serif"}}
-              >
-                {" "}
-                <span className="dialog" style={{marginBottom: "5px"}}> {dd.title} </span>
-              </Button>)}
-              </div>             
-
-{/* 
-             <div>
-             
-              <Button
-                onClick={this.handleCancel}
-                variant="contained"
-                style={{marginRight: "8px" }}
-              >
-                {" "}
-                <span className="dialog"> Cancel </span>
-              </Button>
-              <Button onClick={this.handleOK} variant="contained">
-                {" "}
-                <span className="dialog"> OK </span>
-              </Button>
-            </div> */}
+              {this.props.inputButtons.map((dd) => (
+                <Button
+                  onClick={this.handleButton.bind(this, dd.itemName)}
+                  variant="contained"
+                  style={{
+                    marginRight: "8px",
+                    width: this.props.buttonWidth,
+                    fontFamily: "Trebuchet MS,Arial,Helvetica,sans-serif",
+                  }}
+                >
+                  {" "}
+                  <span className="dialog" style={{ marginBottom: "5px" }}>
+                    {" "}
+                    {dd.title}{" "}
+                  </span>
+                </Button>
+              ))}
+            </div>
           </DialogActions>
         </Dialog>
-                 
       </div>
     );
   }

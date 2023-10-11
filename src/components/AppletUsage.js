@@ -1,5 +1,4 @@
 import React from "react";
-//import toolkit from './toolkit.png';
 import "./NA.css";
 import Pdf from "./TKD Guidev2.1.pdf";
 import PdfFr from "./TKD Guide FRN.pdf";
@@ -8,7 +7,7 @@ import {
   getAppletNames,
   OFFICE_NAMES,
   fetchRecordAppletUsageItselfToDB,
-  fetchSaveResponseToFeedback
+  fetchSaveResponseToFeedback,
 } from "../Utils/util";
 import EnhancedTable from "./AppletUsageFolder/Table";
 import { Collapsible } from "./AppletUsageFolder/Collapsible";
@@ -24,7 +23,6 @@ export class AppletUsage extends React.Component {
   constructor(props) {
     super(props);
     const today = new Date();
-    //this.dateToday = new Date().toISOString().slice(0, 10); // today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 
     this.dateToday =
       today.getFullYear() +
@@ -189,7 +187,6 @@ export class AppletUsage extends React.Component {
         officeName === "N/A" ? "NA" : officeName
       );
 
-
       if (collapsible.id < 2 && dataAll !== undefined && dataAll.length >= 0) {
         this.totalCount[collapsible.id] = 0;
         this.totalCount[3] = 0;
@@ -222,7 +219,7 @@ export class AppletUsage extends React.Component {
         }
       }
 
-     // console.log(dataAll, this.agentList);
+      // console.log(dataAll, this.agentList);
       this.openCollapsible[collapsible.id].data = dataAll;
       this.noBusDays = this.workingDaysFrom(
         this.state.dateFrom,
@@ -283,25 +280,22 @@ export class AppletUsage extends React.Component {
       this.agentList.push(dataAll[i].agentName);
     }
 
-   // console.log(dataAll, this.agentList);
+    // console.log(dataAll, this.agentList);
   };
 
-
-saveResponseToFeedback=(response)=>{
-    console.log(response)
-    response.forEach(element => {
-      fetchSaveResponseToFeedback({id:element.id,response:element.response})
-      
+  saveResponseToFeedback = (response) => {
+    //console.log(response)
+    response.forEach((element) => {
+      fetchSaveResponseToFeedback({
+        id: element.id,
+        response: element.response,
+      });
     });
-
-}
+  };
 
   sort = (k, data, newSort, options) => {
-  //  console.log(k, data, newSort);
-  //  console.log(Object.keys(options.header)[0]);
     if (k === "agentName") {
       data.sort((a, b) => {
-      //  console.log(a);
         let fa = a.agentName === null ? "" : a.agentName.toLowerCase(),
           fb = b.agentName === null ? "" : b.agentName.toLowerCase();
 
@@ -491,8 +485,8 @@ saveResponseToFeedback=(response)=>{
     let minWidthAll = ["55px", "110px", "100px", "110px", "100px"];
     let widthDistinct = ["50%", "23%", "14%", "13%"];
     let minWidthDistinct = ["180px", "80px", "85px", "80px"];
-    let widthFeedback = ["18%", "17%", "15%","10%", "20%", "20%"];
-    let minWidthFeedback = ["120px","120px", "80px", "60px", "180px", "180px"];
+    let widthFeedback = ["18%", "17%", "15%", "10%", "20%", "20%"];
+    let minWidthFeedback = ["120px", "120px", "80px", "60px", "180px", "180px"];
 
     const optionsCount = {
       filter: true,
@@ -555,11 +549,10 @@ saveResponseToFeedback=(response)=>{
       NA: "white",
     };
     let colors = [];
-    //console.log(colorLevel, this.openCollapsible[1].data);
     for (let index = 0; index < this.openCollapsible[1].data.length; ++index) {
       colors.push(colorLevel[this.openCollapsible[1].data[index].colorLevel]);
     }
-    //console.log(colors, this.openCollapsible[1].data);
+    //console.log(this.openCollapsible[4].data);
 
     // graph
     let optionsFV;
@@ -605,17 +598,18 @@ saveResponseToFeedback=(response)=>{
         },
       };
       let i = 12;
-      var date1=  new Date(this.state.dateFrom);
-      var date =new Date( date1.getTime() - date1.getTimezoneOffset() * -60000 )
-        
+      var date1 = new Date(this.state.dateFrom);
+      var date = new Date(date1.getTime() - date1.getTimezoneOffset() * -60000);
+
       let barColours = [];
       for (let k = 0; k < this.noBusDays; k++) {
-         if (date.getDay() === 6) date.setDate(date.getDate() + 1);
+        if (date.getDay() === 6) date.setDate(date.getDate() + 1);
         if (date.getDay() === 0) date.setDate(date.getDate() + 1);
-        if (date.getDay() === 1) 
-        dataX.push("Monday"+date.toISOString().substring(0, 10).substring(4));
-        else
-          dataX.push(date.toISOString().substring(0, 10));
+        if (date.getDay() === 1)
+          dataX.push(
+            "Monday" + date.toISOString().substring(0, 10).substring(4)
+          );
+        else dataX.push(date.toISOString().substring(0, 10));
         barColours.push([
           date.getDay() === 1
             ? "rgba(224, 104, 98, .9)"
@@ -625,7 +619,6 @@ saveResponseToFeedback=(response)=>{
           dataY.push(this.openCollapsible[3].data[k].countPerWeekday);
         else dataY.push(0);
         date.setDate(date.getDate() + 1);
-       
       }
 
       //console.log(dataX, dataY, this.state.dateFrom);
@@ -653,9 +646,11 @@ saveResponseToFeedback=(response)=>{
     return (
       <div className="appletDiv" style={{ overflow: "auto" }}>
         <div className="UsageDiv">
-          <h2 style={style}>Applet Usage:
-          {this.state.loading && <span class="loader2"></span>}</h2>
-          
+          <h2 style={style}>
+            Applet Usage:
+            {this.state.loading && <span class="loader2"></span>}
+          </h2>
+
           <div
             style={{
               fontSize: "16px",
@@ -938,37 +933,42 @@ saveResponseToFeedback=(response)=>{
                 </div>
               )}
           </Collapsible>
-          <br/><br/><br/><br/>        
-          {this.props.feedbackAccess && <Collapsible
-            id={4}
-            title={"Toolkit Direct Feedback:"}
-            openCollapsible={this.openCollapsible[4]}
-            handleCollapsibleClick={this.handleCollapsibleClick}
-            backgroundColor= "rgba(97,44,81, 1)"
-          >
-            {this.state.loading === false &&
-              this.openCollapsible[4].data !== undefined && (
-                <div
-                  style={{
-                    overflow: "auto",
-                    //paddingLeft: "3%",
-                    width: "100%",
-                    maxHeight: "52vh",
-                  }}
-                >
-                  <EnhancedTable
-                    data={this.openCollapsible[4].data}
-                    options={optionsFeedback}
-                    sort={this.sort}
-                    language={this.props.language}
-                    width={widthFeedback}
-                    minWidth={minWidthFeedback}
-                    saveResponse={this.saveResponseToFeedback}
-                    addTextAreaToColumn={"response"}
-                  />
-                </div>
-              )}
-          </Collapsible>}
+          <br />
+          <br />
+          <br />
+          <br />
+          {this.props.feedbackAccess && (
+            <Collapsible
+              id={4}
+              title={"Toolkit Direct Feedback:"}
+              openCollapsible={this.openCollapsible[4]}
+              handleCollapsibleClick={this.handleCollapsibleClick}
+              backgroundColor="rgba(97,44,81, 1)"
+            >
+              {this.state.loading === false &&
+                this.openCollapsible[4].data !== undefined && (
+                  <div
+                    style={{
+                      overflow: "auto",
+                      //paddingLeft: "3%",
+                      width: "100%",
+                      maxHeight: "52vh",
+                    }}
+                  >
+                    <EnhancedTable
+                      data={this.openCollapsible[4].data}
+                      options={optionsFeedback}
+                      sort={this.sort}
+                      language={this.props.language}
+                      width={widthFeedback}
+                      minWidth={minWidthFeedback}
+                      saveResponse={this.saveResponseToFeedback}
+                      addTextAreaToColumn={"response"}
+                    />
+                  </div>
+                )}
+            </Collapsible>
+          )}
         </div>
       </div>
     );

@@ -41,7 +41,6 @@ export class Collapsible extends Component {
       <div style={{ marginTop:"4px"}}>
         <div onClick={this.togglePanel} className="header" style={styleBG}>
           {this.props.title}
-    {/*       {this.props.infoIcon !== undefined && <Info infoIcon={this.props.infoIcon} /> } */}
              {arr}
         </div>
         {this.state.open ? (

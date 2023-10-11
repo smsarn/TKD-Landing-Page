@@ -1,4 +1,3 @@
-/* eslint-disable react/jsx-key */
 import React, { Component } from "react";
 import { withStyles, makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -9,7 +8,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import "./Table.css";
 import { PopupUserinputDialog } from "./PopupUserInput";
-// import {DIALOG } from  './utilsDB/helper2DB';
 
 const styles = (theme) => ({
   customTableContainer: {
@@ -20,7 +18,7 @@ const styles = (theme) => ({
     fontFamily: "Trebuchet MS,Arial,Helvetica,sans-serif",
     fontSize: "14px",
     lineHeight: ".6rem",
-    paddingLeft: "10px"
+    paddingLeft: "10px",
   },
   rootTableCell: {
     border: "3px solid #fff",
@@ -97,105 +95,33 @@ const styles = (theme) => ({
   },
 });
 
-/* const useStylesMuiTableHead = makeStyles({
-   root: {
-     backgroundColor: "#7399c6",
-   },
- });
- 
- const useStylesMuiTableCell = makeStyles({
-   root: {
-     border: "3px solid #fff",
-     fontFamily: "Trebuchet MS,Arial,Helvetica,sans-serif",
-     padding: ".5em .5em",
-   },
-   head: {
-     color: "#fff",
-     fontWeight: 700,
-   },
- });
- 
- const useStylesMuiTableRow = makeStyles({
-   root: {
-     "&:nth-of-type(odd)": {
-       backgroundColor: "#ececec",
-     },
-     "&:nth-of-type(even)": {
-       backgroundColor: "#f3f7f4",
-     },
-     "&:nth-of-type(odd):hover": {
-       backgroundColor: "#d2d2d2",
-       webkitTransition: "background-color 200ms ease-out",
-       mstransition: "background-color 200ms ease-out",
-       transition: "background-color 200ms ease-out",
-     },
-     "&:nth-of-type(even):hover": {
-       backgroundColor: "#d3dcd5",
-       webkitTransition: "background-color 200ms ease-out",
-       mstransition: "background-color 200ms ease-out",
-       transition: "background-color 200ms ease-out",
-     },
-     "& > th:not(:last-child)": {
-       borderRight: "3px solid #fff",
-     },
-     "& > th:not(:first-child)": {
-       borderLeft: "3px solid #fff",
-     },
-     "& > td:not(:last-child)": {
-       borderRight: "3px solid #fff",
-     },
-     "& > td:not(:first-child)": {
-       borderLeft: "3px solid #fff",
-     },
-   },
- });
-  */
-
-/* const classesHead = useStylesMuiTableHead();
- const classesCell = useStylesMuiTableCell();
- const classes = useStylesMuiTableRow(); */
-
-//export default function CustomizedTables({ data, options }) {
-
 class EnhancedTable extends Component {
   constructor(props) {
     super(props);
-    let col=[]
-    if(this.props.addTextAreaToColumn!== undefined)
-    { 
+    let col = [];
+    if (this.props.addTextAreaToColumn !== undefined) {
       this.props.data.map((k) => {
-        col.push({id:k["id"],response:k[this.props.addTextAreaToColumn], changed:false})}
-        )
-      }
-    
+        col.push({
+          id: k["id"],
+          response: k[this.props.addTextAreaToColumn],
+          changed: false,
+        });
+      });
+    }
+
     this.state = {
       data: this.props.data,
       sorts: { ordered: 0, direction: 0 },
       sourceRow: -1,
       showConfirm: false,
-      inputColumn:col,
-      saved:true
+      inputColumn: col,
+      saved: true,
     };
 
     this.message = "";
     this.selectedRow = this.props.selectedRows;
   }
 
-  /* componentDidMount = async ()=>{
-
-    let col=[]
-      
-    if(this.props.addTextAreaToColumn!== undefined)
-    { 
-      this.props.data.map((k) => {
-        col.push({id:k["id"],response:k[this.props.addTextAreaToColumn]})}
-        )
-      }
-      await this.setState({inputColumn:col})
-
-      console.log(col,this.state.inputColumn)
-  }
- */
   componentWillReceiveProps(props) {
     if (
       props.selectedRows !== this.props.selectedRows ||
@@ -205,7 +131,6 @@ class EnhancedTable extends Component {
       this.setState({ data: props.data });
     }
   }
-
 
   clickImageHover = (k) => {
     //console.log(k)
@@ -221,7 +146,6 @@ class EnhancedTable extends Component {
     data = sort.data;
     newSort = sort.newSort;
 
-   
     this.setState({ data: data, sorts: newSort });
   };
 
@@ -244,66 +168,37 @@ class EnhancedTable extends Component {
     this.props.updateSelectedRow(this.props.GUID(row), row.applet);
   };
 
-  updateInputValue =async (e,k) => {
-    console.log(k)
-    let col=this.state.inputColumn
-    
-    col[k].changed=col[k].response!==e.target.value
-    col[k].response=e.target.value
-    this.setState({inputColumn: col});
-    await this.setState({inputColumn:col})
+  updateInputValue = async (e, k) => {
+    //console.log(k)
+    let col = this.state.inputColumn;
 
-    console.log(col,this.state.inputColumn)
+    col[k].changed = col[k].response !== e.target.value;
+    col[k].response = e.target.value;
+    this.setState({ inputColumn: col });
+    await this.setState({ inputColumn: col });
 
+    //console.log(col,this.state.inputColumn)
   };
 
-  save=()=>{
-    if(this.state.inputColumn.length>0)
-      { 
-        this.setState({saved:false})
-        this.props.saveResponse(this.state.inputColumn.filter((item)=>{return item.changed}))
-        
-     // let feedback={agentEmail: this.props.email, appletCode: getAppletCode(this.state.selectedApplet), feedback:this.state.feedback}
-     // fetchSaveComment(feedback)
-  
+  save = () => {
+    if (this.state.inputColumn.length > 0) {
+      this.setState({ saved: false });
+      this.props.saveResponse(
+        this.state.inputColumn.filter((item) => {
+          return item.changed;
+        })
+      );
+
       setTimeout(() => {
-        this.setState({saved:true})
-      }, 1500)
-    } 
-   }
-  
-  
-  
+        this.setState({ saved: true });
+      }, 1500);
+    }
+  };
+
   render() {
     const { classes } = this.props;
     const lang = this.props.language;
-
-    //console.log(this.state.data);
-
-    /* const source1= require("./imagesDB/deleteCaseActive1.png")
- const source2= require("./imagesDB/deleteCase.png")
- 
- 
- const edit1= require("./imagesDB/editCaseActive.png")
- const edit2= require("./imagesDB/editCase.png")
- 
- const select1= require("./imagesDB/selectCaseActive.png")
- const select2= require("./imagesDB/selectCase.png")
- 
- const expand1= require("./imagesDB/expandActive.png")
- const expand2= require("./imagesDB/expand.png")
- 
-  */ const inputFields = [];
-    /*  let deleteTitle=DIALOG[lang].deleteTitle 
-    
-    const inputButtons=[];
-    inputButtons.push({itemName:1,title:DIALOG[lang].deleteCancel})
-    inputButtons.push({itemName:2,title:DIALOG[lang].deleteOK})
-   */
-    //console.log(this.props.selectedRows)
-
-    //this.state.data.map((row, i) => {console.log(i,row); console.log(this.props.GUID(row));console.log(this.props.GUID(row)) })
-
+    const inputFields = [];
     const colorLevel = {};
 
     return (
@@ -313,7 +208,11 @@ class EnhancedTable extends Component {
             aria-label="customized table"
             stickyHeader
             aria-label="sticky table"
-            style={{ tableLayout: "fixed", width: this.state.inputColumn.length>0?"100%":"95%", overflowX: "auto" }}
+            style={{
+              tableLayout: "fixed",
+              width: this.state.inputColumn.length > 0 ? "100%" : "95%",
+              overflowX: "auto",
+            }}
           >
             <colgroup>
               <col
@@ -379,7 +278,7 @@ class EnhancedTable extends Component {
                 </TableRow>
               </TableHead>
             )}
-            {/* {this.state.showConfirm &&< ConfirmDialog open={this.state.showConfirm} language={this.props.language} message={this.message} propsUnloadMessage={this.propsUnloadMessage}>...</ConfirmDialog>} */}
+
             {this.state.showConfirm && (
               <PopupUserinputDialog
                 openDialog={this.state.showConfirm}
@@ -401,7 +300,6 @@ class EnhancedTable extends Component {
                       selected: classes.tableRowSelected,
                     }}
                     key={i}
-                    /*  onClick={() =>{this.selectedRow=[];this.selectedRow.push(row.caseGUID); this.clickSelectCase.bind(this, row)}    } */
                   >
                     {Object.keys(this.props.options.data).map((k) => {
                       return (
@@ -410,9 +308,9 @@ class EnhancedTable extends Component {
                           style={
                             k !== this.props.color
                               ? {
-                                whiteSpace: "normal",
-                                wordWrap: "break-word",
-                              }
+                                  whiteSpace: "normal",
+                                  wordWrap: "break-word",
+                                }
                               : {
                                   backgroundColor:
                                     this.props.data[i].colorDisplay,
@@ -422,44 +320,46 @@ class EnhancedTable extends Component {
                           }
                           align={this.props.options.data[k].align}
                         >
-                      {k===this.props.addTextAreaToColumn?
-                        <textarea
-                        id={5}
-                        className="inputFieldInTable"
-                        onFocus={this.handleFocus}
-                        onClick={this.select}
-                        type="text"
-                        value={this.state.inputColumn[i].response}
-                        //onBlur={(evt) => this.updateInputValue(evt,i)}
-                        onChange={(evt) => this.updateInputValue(evt,i)}
-                      />
-                      :   row[k]}
+                          {k === this.props.addTextAreaToColumn ? (
+                            <textarea
+                              id={5}
+                              className="inputFieldInTable"
+                              onFocus={this.handleFocus}
+                              onClick={this.select}
+                              type="text"
+                              value={this.state.inputColumn[i].response}
+                              onChange={(evt) => this.updateInputValue(evt, i)}
+                            />
+                          ) : (
+                            row[k]
+                          )}
                         </TableCell>
                       );
                     })}
-                 
-
                   </TableRow>
                 );
               })}
             </TableBody>
-          
           </Table>
         </TableContainer>
-        {this.props.addTextAreaToColumn!==undefined && 
-        <div><span style={{marginLeft:"15px", visibility:this.state.saved?"hidden":"visible"}}>{lang==="en"?" ...saved":" ...enregistré"}</span>
-          <input
+        {this.props.addTextAreaToColumn !== undefined && (
+          <div>
+            <span
+              style={{
+                marginLeft: "15px",
+                visibility: this.state.saved ? "hidden" : "visible",
+              }}
+            >
+              {lang === "en" ? " ...saved" : " ...enregistré"}
+            </span>
+            <input
               className="roundedCornerCmd"
               onClick={this.save}
               type="button"
-              value={lang==="en"?"Save":"Enregistrer"}
-            /></div>}
-        {/*  <DataTable
-    dataColTitles={["client","designed By","date","applet"] }
-    dataProjection={data1}
-    gridTitle={"clientapplet"   }
-    language={this.props.language}
-  /> */}
+              value={lang === "en" ? "Save" : "Enregistrer"}
+            />
+          </div>
+        )}
       </div>
     );
   }

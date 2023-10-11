@@ -1,23 +1,20 @@
 .liTip {
-    font-family: Georgia !important;
-    line-height: 2 !important;
-    font-size: 14px !important;
-    margin-left: 10px;
-    list-style-type: circle !important;
-    font-weight: normal !important;
-    
- }
+  font-family: Georgia !important;
+  line-height: 2 !important;
+  font-size: 14px !important;
+  margin-left: 10px;
+  list-style-type: circle !important;
+  font-weight: normal !important;
+}
 
- .liTip2 {
-    display:inline-block!important;
-    white-space: no-wrap !important;
- }
+.liTip2 {
+  display: inline-block !important;
+  white-space: no-wrap !important;
+}
 
- .tooltip 
- {
- width: 70%;
- white-space : normal;
- background-color: rgba(97, 44, 81, 1);
- opacity: 1 !important;
- }
- 
+.tooltip {
+  width: 70%;
+  white-space: normal;
+  background-color: rgba(97, 44, 81, 1);
+  opacity: 1 !important;
+}
