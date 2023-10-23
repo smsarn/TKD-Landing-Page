@@ -641,18 +641,18 @@ export const OUTPUTDESC = {
         </h4>
         <ul>
           <li className="liTip">
-            &#8226;&nbsp;&nbsp;&nbsp;• Saisir ou intégrer les données
+            &#8226;&nbsp;&nbsp;&nbsp;Saisir ou intégrer les données
             financières de votre client provenant de l'analyse des besoins en
             assurance
           </li>
           <li className="liTip">
-            &#8226;&nbsp;&nbsp;&nbsp;• Démontrer les différents moyens
+            &#8226;&nbsp;&nbsp;&nbsp;Démontrer les différents moyens
             d'acquérir un capital pour financer les besoins au décès, y compris
             la liquidation des actifs, l'emprunt de fonds, la création d'un
             fonds de réserve et la souscription d'une assurance-vie
           </li>
           <li className="liTip">
-            &#8226;&nbsp;&nbsp;&nbsp;• Produire et personnaliser une
+            &#8226;&nbsp;&nbsp;&nbsp;Produire et personnaliser une
             présentation en format PDF
           </li>
         </ul>

@@ -14,7 +14,7 @@ export class AppletHome extends React.Component {
       showBanner: true,
     };
 	//  set to true to remove banner re new design
-    this.homePageNewDesign =false;//true;//false;
+    this.homePageNewDesign =true;//false;
   }
   handleResize = () =>
     this.setState({
