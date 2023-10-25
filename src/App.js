@@ -316,7 +316,7 @@ export default class App extends Component {
               "STARTING_APPLET",
               redirectToApplet + "_" + QS
             );
-
+alert((redirectToApplet+",   " +QS))
             this.getTokenFromLocalOrRedirectThuPortal(true);
             this.updateRedirectAndQS(redirectToApplet, QS);
           }

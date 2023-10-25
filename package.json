@@ -1,6 +1,10 @@
 {
   "name": "ToolkitDirect",
+<<<<<<< HEAD
   "version": "1.0.38",
+=======
+  "version": "1.0.37",
+>>>>>>> 7e54fc61cd20ae2019f83bd69c0d8a71a3689bdb
   "buildMode": 1,
   "comments": {
     "buildModeGuide": "0 is for local, 1 for test-tkdirect, 2 for production toolkitdirect"
